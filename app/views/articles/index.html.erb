@@ -1,0 +1,14 @@
+
+<h1>All Articles</h1>
+
+<ul id="articles">
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article), class: 'article-title' %>
+    </li>
+  <% end %>
+</ul>
+<p></p>
+<%= link_to "Create New Article", new_article_path(), id: "new_article" %>
+
+  <%# In order to put ruby into our HTML we must use the tags <%= <% and %\> Use of %= means that the result of the executed ruby code will display in the HTML %>
