@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     #included in the articles_helper file
     @article.save
+    flash.notice = "Article '#{@article.title}' Created!"
     redirect_to article_path(@article)
 
     #@article = Article.new(title: params[:article][:title], body: params[:article][:body]) or .new(params[:article])
@@ -31,6 +32,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    flash.notice = "Article '#{@article.title}' Deleted"
     @article.destroy
     redirect_to articles_path()
   end
@@ -45,6 +47,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.update(article_params)
     #uses the module articles_helper for permissions
+    flash.notice = "Article '#{@article.title}' Updated!"
+    #sends a message to the user alerting them of the action. don't forget to add flash to application.html.erb in the body, above the line yeild
     redirect_to article_path(@article)
   end
 end
