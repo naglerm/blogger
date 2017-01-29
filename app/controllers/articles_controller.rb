@@ -9,6 +9,10 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     #Show gets one particular article. It queries the database (find) using a particular id, depending on which article was selected. Now in the view for the show action, we can reference the specific article
+    @comment = Comment.new
+    @comment.article_id = @article.id
+    #we need this in order to display comments when we SHOW our article
+
   end
 
   def new
