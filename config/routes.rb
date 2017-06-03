@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :comments
     #articles are a resource of our application,and comments are a nested resource (resource of an article)
   end
+  resources :tags
 end
